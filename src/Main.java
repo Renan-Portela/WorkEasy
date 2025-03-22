@@ -42,8 +42,32 @@ public class Main {
         buttonAdicionar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int id = Interger
+                int id = Integer.parseInt(textId.getText());
+                String nome = textNome.getText();
+                int cpf = Integer.parseInt(textCpf.getText());
+                int telefone = Integer.parseInt(textTelefone.getText());
+
+                Usuario usuario = new Usuario(id, nome, cpf, telefone);
+                gerenciador.adicionarUsuario(usuario);
+
+                textId.setText("");
+                textNome.setText("");
+                textCpf.setText("");
+                textTelefone.setText("");
             }
         });
+
+        frame.add(labelId);
+        frame.add(textId);
+        frame.add(labelNome);
+        frame.add(textNome);
+        frame.add(labelCpf);
+        frame.add(textCpf);
+        frame.add(labelTelefone);
+        frame.add(textTelefone);
+        frame.add(new JLabel());
+        frame.add(buttonAdicionar);
+
+        frame.setVisible(true);
     }
 }
